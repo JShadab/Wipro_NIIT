@@ -1,0 +1,49 @@
+public class Author {	
+	String name;
+}
+
+
+public class Book {
+
+	// attributes | properties | state | field
+	String title;
+	String genres;
+	Author author;
+	double price;
+
+	// Behaviors
+
+}
+
+public class BookStore {
+
+	// attributes | properties | state | field
+	String name;
+	String address;
+
+	// Behaviors
+
+	void sell(Book book) {
+	}
+
+	int getDiscountPercentage(Book book) {
+
+		if (book.genres.equals(Genres.FICTION)) {
+			return 25;
+		} else {
+			return 0;
+		}
+	}
+
+}
+
+public class Genres {
+
+	public static final String FICTION = "fiction";
+	public static final String RELIGION = "religion";
+	public static final String ADVENTURE = "adventure";
+	public static final String COOKING = "cooking";
+	public static final String TRAVEL = "travel";
+	public static final String AUTO_BIOGRAPHIES = "autobiographies";
+
+}

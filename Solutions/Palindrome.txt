@@ -1,0 +1,56 @@
+package com.jap.palindrome;
+
+import java.util.Scanner;
+
+/* Write a java program to find if any of the words in the list is a palindrome or not, print their count and the palindrome words.*/
+public class Palindrome {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter number of words");
+
+		// Input number of words in array using scanner
+		int numberOfWords = sc.nextInt();
+
+		// Input array of words to be compared using scanner
+		String[] words = new String[numberOfWords];
+
+		for (int i = 0; i < numberOfWords; i++) {
+			System.out.println("Enter a word");
+			words[i] = sc.next();
+		}
+
+	
+		Palindrome palindrome = new Palindrome();
+
+		// Call method to find palindromes in array of words
+		System.out.println("Total number of palindromes: " + palindrome.findPalindromeWords(words));
+	}
+
+	// Function to find palindromes in an array of words
+	public int findPalindromeWords(String[] words) {
+
+		int count = 0;
+
+		if (words.length == 0) {
+			return count;
+		}
+
+		for (String word : words) {
+			
+			StringBuffer sb = new StringBuffer(word); // String to StringBuffer
+			StringBuffer reverseSB = sb.reverse();
+			
+			String reverseWord = reverseSB.toString(); // StringBuffer to String
+			
+			if(word.equals(reverseWord)) {
+				System.out.println(word +" is a Palindrom");
+				count++;
+			}
+
+		}
+
+		return count;
+	}
+}

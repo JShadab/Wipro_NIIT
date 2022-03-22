@@ -1,0 +1,184 @@
+package com.jap.masterychallenge1;
+
+import java.util.Scanner;
+
+public class SmartTravelForex {
+
+	/**
+	 * This method converts the given amount in INR to the currency of choice
+	 * 
+	 * @param amount
+	 * @param choice
+	 * @return the exchange rate depending on choice of currency
+	 */
+	public static double currentExchangeRates(double amount, int choice) {
+
+		if (amount < 0) {
+			return -1;
+		}
+
+		double souceFactor = 0;
+		switch (choice) {
+
+		case 1: {
+			souceFactor = JPY;
+			break;
+		}
+		case 2: {
+			souceFactor = EUR;
+			break;
+		}
+		case 3: {
+			souceFactor = GBP;
+			break;
+		}
+		case 4: {
+			souceFactor = USD;
+			break;
+		}
+		case 5: {
+			souceFactor = AED;
+			break;
+		}
+		}
+
+		return amount * souceFactor;
+	}
+
+	/**
+	 * This method converts a given source currency to the desired target currency
+	 * 
+	 * @param sourceCurrency
+	 * @param targetCurrency
+	 * @param amountToBeConverted
+	 * @return converted amount from a source currency to the desired target
+	 *         currency
+	 */
+
+	public static double convertGivenCurrencyIntoDesiredCurrency(int sourceCurrency, int targetCurrency,
+			double amountToBeConverted) {
+
+		if (sourceCurrency == targetCurrency) {
+			return -1;
+		}
+
+		double souceFactor = 0;
+		switch (sourceCurrency) {
+
+		case 1: {
+			souceFactor = JPY;
+			break;
+		}
+		case 2: {
+			souceFactor = EUR;
+			break;
+		}
+		case 3: {
+			souceFactor = GBP;
+			break;
+		}
+		case 4: {
+			souceFactor = USD;
+			break;
+		}
+		case 5: {
+			souceFactor = AED;
+			break;
+		}
+		}
+
+		double targetFactor = 0;
+		switch (targetCurrency) {
+
+		case 1: {
+			targetFactor = JPY;
+			break;
+		}
+		case 2: {
+			targetFactor = EUR;
+			break;
+		}
+		case 3: {
+			targetFactor = GBP;
+			break;
+		}
+		case 4: {
+			targetFactor = USD;
+			break;
+		}
+		case 5: {
+			targetFactor = AED;
+			break;
+		}
+
+		}
+
+		return (amountToBeConverted * souceFactor) / targetFactor;
+	}
+
+	/**
+	 * This method displays the currency conversion rates in a tabular format
+	 *
+	 */
+	public static void displayForexDetails() {
+
+		System.out.println("The exchange rate for each currency (1, 10, 20, 50, 100) in INR");
+
+		String lineJPY = "JPY " + TAB + (JPY * 1) + TAB + (JPY * 10) + TAB + (JPY * 20) + TAB + (JPY * 50) + TAB
+				+ (JPY * 100);
+		String lineEuro = "EUR " + TAB + (EUR * 1) + TAB + (EUR * 10) + TAB + (EUR * 20) + TAB + (EUR * 50) + TAB
+				+ (EUR * 100);
+		String lineGBP = "GBP " + TAB + (GBP * 1) + TAB + (GBP * 10) + TAB + (GBP * 20) + TAB + (GBP * 50) + TAB
+				+ (GBP * 100);
+		String lineUSD = "USD " + TAB + (USD * 1) + TAB + (USD * 10) + TAB + (USD * 20) + TAB + (USD * 50) + TAB
+				+ (USD * 100);
+		String lineAED = "AED " + TAB + (AED * 1) + TAB + (AED * 10) + TAB + (AED * 20) + TAB + (AED * 50) + TAB
+				+ (AED * 100);
+
+		System.out.println(lineJPY);
+		System.out.println(lineEuro);
+		System.out.println(lineGBP);
+		System.out.println(lineUSD);
+		System.out.println(lineAED);
+
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		displayForexDetails();
+		int source = 0;
+		int target = 0;
+		double amountToBeConverted = 0;
+		System.out.println("Do you wish to check conversion rates today : (y/n) ");
+		char choice = sc.next().charAt(0);
+		if (choice == 'y') {
+			System.out.println(
+					"Exchange Rate of currency can be done for \n 1. JPY \n 2. EUR \n 3. GBP \n 4. USD \n 5. AED ");
+			System.out.println("Enter the source currency(Currency I have) : ");
+			// Accept the source currency 1 for JPY, 2 for EUR, 3 for GBP, 4 for USD, 5 for
+			// AED
+			source = sc.nextInt();
+			System.out.println("Enter the target currency(Currency I want) : ");
+			// Accept the target currency 1 for JPY, 2 for EUR, 3 for GBP, 4 for USD, 5 for
+			// AED
+			target = sc.nextInt();
+			System.out.println("Enter the amount to be converted : ");
+			// Accept the amount to be converted
+			amountToBeConverted = sc.nextDouble();
+			// Display the amount converted
+			System.out.println("The converted exchange rate is : "
+					+ convertGivenCurrencyIntoDesiredCurrency(source, target, amountToBeConverted));
+		} else {
+			System.out.println("Thanks for checking into currency convertor");
+		}
+	}
+
+	static final double JPY = 0.67;
+	static final double EUR = 85.37;
+	static final double GBP = 94.5;
+	static final double USD = 74.3;
+	static final double AED = 20.25;
+
+	static final String TAB = "\t";
+
+}

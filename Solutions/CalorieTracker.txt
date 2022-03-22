@@ -1,0 +1,31 @@
+package com.jap.calorietracker;
+
+public class CalorieTracker {
+
+	/**
+	 * This function takes the calories burnt by the activities and the calorie
+	 * intake in a day and returns the weight lost by Anne.
+	 */
+
+	public int weightLostInAMonth(int cycling, int running, int swimming, int calorieIntake) {
+		// write logic here
+
+		int calorieCyclingPerMonth = cycling * 2 * 4;
+		int calorieRunningPerMonth = running * 2 * 4;
+		int calorieSwimmingPerMonth = swimming * 2 * 4;
+
+		int total = (calorieCyclingPerMonth + calorieRunningPerMonth + calorieSwimmingPerMonth) - calorieIntake;
+
+		int pounds = total / 1000;
+
+		return pounds;
+	}
+
+	public static void main(String[] args) {
+
+		CalorieTracker ct = new CalorieTracker();
+		System.out.println(
+				"Weight lost by Anne in a month is : " + ct.weightLostInAMonth(300, 200, 500, 2000) + " pounds");
+
+	}
+}

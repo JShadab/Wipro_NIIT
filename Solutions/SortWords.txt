@@ -1,0 +1,55 @@
+package com.jap.sortwords;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/* Write a Java program to sort all of the words in the list in alphabetical order and display */
+public class SortWords {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter number of words");
+
+		// Input number of words in array using scanner
+		int numberOfWords = sc.nextInt();
+
+		// Input array of words to be compared using scanner
+		String[] words = new String[numberOfWords];
+
+		for (int i = 0; i < numberOfWords; i++) {
+			System.out.println("Enter a word");
+			words[i] = sc.next();
+		}
+
+		SortWords sortWords = new SortWords();
+		// Call method to sort words alphabetically
+		String[] sortedWords = sortWords.sort(words);
+
+		// Display the words after sorting alphabetically
+		for (String word : sortedWords) {
+			System.out.println(word);
+		}
+	}
+
+	// Function to sort words in an array in alphabetical order
+	public String[] sort(String[] words) {
+
+		for (int i = 0; i < words.length - 1; i++) {
+
+			for (int j = i + 1; j < words.length; j++) {
+
+				// word is greater than nextWord
+				if (words[i].compareToIgnoreCase(words[j]) > 0) {
+
+					// SWAP
+					String temp = words[i];
+					words[i] = words[j];
+					words[j] = temp;
+
+				}
+			}
+		}
+
+		return words;
+	}
+}

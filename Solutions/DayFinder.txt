@@ -1,0 +1,42 @@
+package com.jap.dayfinder;
+
+import java.util.Scanner;
+
+public class DayFinder {
+//The current day of week is taken in int (For Sunday 1, Monday 2, Tuesday 3....Saturday 7)
+	public String predictDay(int currentDay, int noOfDaysFromToday) {
+
+		int desiredDay = 0;
+
+		if (noOfDaysFromToday < 0) {
+			desiredDay = 7 + (currentDay + noOfDaysFromToday);
+		} else {
+			desiredDay = (currentDay + noOfDaysFromToday) - 7;
+		}
+
+		
+		String[] days = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+
+		return days[desiredDay - 1];
+	}
+
+	public static void main(String[] args) {
+		DayFinder dayFinder = new DayFinder();
+		// Accept input of medicine taken day and the next dose to be taken in how many
+		// days
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter the day medicine is taken on: ");
+		int medicineTakenOn = sc.nextInt();
+
+		System.out.println("Next dose to be taken after: ");
+		int daysToNextDose = sc.nextInt();
+
+		// call the method to predict the day the next dose must be taken
+		String nextDoseToBeTakenOn = dayFinder.predictDay(medicineTakenOn, daysToNextDose);
+		// display the day
+		System.out.println("Your next dose should be taken on :  " + nextDoseToBeTakenOn);
+	}
+
+}

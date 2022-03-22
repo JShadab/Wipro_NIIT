@@ -1,0 +1,383 @@
+Class:
+------
+1. Class is an imaginary thing (blueprint) which describe the properties and behaviours for an object.
+2. Class is representation of similar kind of objects.
+3. Class is a logical entity.
+4. Class is an user defined data type.
+
+
+Syntax:
+--------
+	<modifier> class <name> <extends> <implements>
+			{
+				// body -> members can be either static or instance
+						1. variable(s)
+						2. method(s)
+						3. constructor*
+						4. inner class
+						5. initializer blocks
+						
+			}
+
+Example:
+---------
+	class A
+	{
+	}
+------------------------
+public class B
+	{
+		int i;
+		
+		void foo()
+			{
+			}
+	}
+==================================================================
+Object:
+---------
+1. Object is an instance of a class.
+2. Object is a real world entity.
+
+Sysntax:
+---------
+	<type>	<var> =	new <type>(<parameters>)
+      
+Example:
+---------
+	Car c1 = new Car();
+	Car c2 = new Car();
+	
+	
+
+* new is a keyword in Java and used as an operator. 
+	a) It will create all instance variable(s) of the class in heap memory and
+	b) return reference/address of that object.
+	
+	
+Accessig members:
+-------------------
+a) <ClassName>.<member>  //static members
+b) <ObjRef>.<member>     // instance member as well as static (not a good thing)
+
+==================================================================
+*) static members are associate with class.
+*) instance members are associated with object.
+
+==================================================================
+inheritance[IS-A relationship]:
+-----------------------------------
+-> It is a way of code reusability.
+
+
+class Person
+{
+	void eat(){}
+	void sleep(){}
+}
+				(IS-A)
+class Employee extends Person
+{
+	void work(){}
+}
+
+class Dog
+{
+}
+----------------------------------------
+Employee emp = new Employee();
+		
+		emp.work();
+		emp.eat();
+		emp.sleep();
+
+================================================
+Aggregation[HAS-A relationship]
+-----------------------------------
+		
+class Employee extends Person
+{
+	void work(){}	
+	Dog dog; // HAS-A 	
+}
+========================================================
+Encapsulation:
+---------------
+1. Wrapping of data amd methods into a single unit called encapsulation.
+2. Encapsulation says that  make you data member as private and provide required getter and setters.
+
+		public class Cat {
+
+			private int age;
+
+			// getter
+			public int getAge() {
+				return age;
+			}
+
+			// setter
+			public void setAge(int x) {
+
+				if (x <= 0) {
+
+					System.out.println("Are u crazy..");
+					return;
+				}
+
+				this.age = x;
+			}
+
+		}
+
+
+Polymorphism:
+--------------
+ability of an object/method to behave like multiple forms
+	a. method overloading (Compile time | early | static polymorphism)
+	b. method overriding (Runtime | late | dynamic polymorphism)
+	c. operator overloading
+
+Abstraction:
+------------
+1. Data/information hiding.
+2. Only neccessary details would be given by hiding unneccessary details.
+
+=================================================================================
+Data types in java:
+----------------------
+Primitive data type:
+	boolean, char, byte, short, int, long, float, double
+
+Reference data type:
+			class, interface, array, enums
+---------------------------------------------------------
+byte -> short -> int -> long -> float -> double
+        char -> int
+
+------------------------------------10 March 2022-----------------------------------------------------
+Java Coding Convention [not a rule]:
+------------------------------------
+class name : My, MyFirst, MyFirstClass
+method/variable Name: my, myFirst, myFirstMethod
+constant/enum name: MY, MY_FIRST, MY_FIRST_CONST
+
+Java Source code structure:
+---------------------------
+1. <package declaration>
+2. <import statements>
+3. <class/interface definition>
+
+-> All three are optional.
+-> Order must be as above.
+
+---------------------------------
+Tokens:
+----------
+-> It is a basic building block of a java source code structure.
+
+Tokens
+	|- Keywords: predefine words to the compiler.
+	|- Identifiers: name of class, variable, method, package are called identifier.
+				  -> contans ony letter, digit, '_', '$'
+				  -> never starts from digit
+				  -> cannot use keyword as identifier.
+	|- literals(values)
+		|- Integer values (-10, 10, 0b10, 010, 0x10) (0-9, A-F)
+					*) default data type is 'int'
+		|- Floating point values (-2.3, 3.5, 2E4, 7e-34)
+					*) default data type is 'double'
+		|- Boolean values (true, false)
+		|- Character values ('1', 'a', '#', ...)
+		|- String values ("1", "a", "#", "Abc1234@%..papa", ...)
+	
+	|- Operators
+	|- White spaces (space, enter, tab)
+	|- Comments
+			|- // single line 
+			|- /* ---- */ multiline 
+			|- /** ---- */ Java Documentation comment
+			
+==================================================================
+Operators:
+=============
+1. Arithmetic operators:
+----------------------------
+a) +, -, *, /, %
+	
+	int a = 10;
+	int b = 3;
+	
+	System.out.println(a + b); // 13 
+	System.out.println(a - b); // 7
+	System.out.println(a * b); // 30
+	System.out.println(a / b); // 3
+	System.out.println(a % b); // 1
+
+b) Extended assignment:
+		a = a + b; => a += b;
+        a = a - b; => a -= b;
+		a = a * b; => a *= b;
+		a = a / b; => a /= b;
+        a = a % b; => a %= b;
+
+c) MAX(int, <type1>, <type2>, ....)	
+		
+		double d = 2.5;
+		long l= 10;
+		
+	double	x = (d +5 ) * l;  // MAX(int, double, int, long   )
+-------------------------------------
+	byte b =10;
+	short s = 20;
+
+	int y = b + s ;		// MAX(int, byte, short)
+
+===================================================================================		
+2. Relational operators
+------------------------
+	a) <, <=, >, >=
+	b) operands: Numeric
+		result: boolean
+
+Example;
+-----------
+		int x =15;
+		boolean b = 10 < x < 20; // Compile time error
+				  => true < 20
+	
+===================================================================================	
+3. Equality operators
+--------------------------
+	a) ==, !=
+	b) operands: all
+		result: boolean
+		
+Example;
+-----------		
+	int i = 10;
+	
+	boolean b = i == 15; // false
+	
+			b = b == false; // true
+---------------------------------------
+ Car c1 = new Car();
+ Car c2 = new Car();
+ 
+	boolean b1 = c1 == c2; // false -> reference equality checker comparision ()
+
+===================================================================================	
+4. Assignment operators
+	
+	 <destType> = <srcType>
+
+---------------- WIDENING ------------------------->>
+byte -> short -> int -> long -> float -> double
+        char -> int
+<<---------------- NARROWING ------------------------
+	 
+     =>  <larger data type> = <smaller data type> (WIDENING is done implicitly) 
+	 =>  <smaller data type> = <larger data type> (NARROWING requires casting) 
+
+Example:
+-----------
+	 	int a = 10; 
+		double d = a; // WIDENING
+
+		// --------------------------------------
+		double d1 = 2.3;
+		int b = (int) d1; // NARROWING
+	 
+===================================================================================	
+5. String Concatenation operators:
+------------------------------------
+    int a = 10 + 20 ; // 30
+	
+	String s1 = "10" + "20" ; // "1020"
+	String s2 = "I Love " + "Java" ; // "I Love Java"
+	String s3 = "ABC" + 101 ; // => "ABC" + "101" => "ABC101"
+
+===================================================================================	
+6. Variable increment/decrement operators:
+-----------------------------------------------
+	++/--
+
+	
+	int i =10;
+	   ++i; // pre-increment
+	System.out.println(i); // 11
+
+--------------------------------------	
+	int i =10;
+	    i++; // post-increment
+	System.out.println(i); // 11
+	
+-------------------------------------------------------------------------------
+	int i = 10;
+	int j = ++i; // pre-increment
+	 
+	System.out.println(i); // 11
+	System.out.println(j); // 11
+
+--------------------------------------	
+	int i = 10;
+	int j =  i++; // post-increment
+	  
+	System.out.println(i); // 11 
+	System.out.println(j); // 10
+	
+-------------------------------------------------------
+
+	int x = ++5; // C.E.
+	System.out.println(x); //
+	
+===================================================================================		
+7. Boolean logical operators:
+------------------------------
+	a) &, |, ^, !
+	b) operands: <boolExpr>
+		result : boolean
+
+Example;
+-----------
+		int x =15;
+		boolean b = (10 > x) & (x < 20); // false
+				  => false & true
+	
+    c)	&&, ||
+	
+Example;
+-----------
+		int x =15;
+		boolean b = (10 > x) && (x < 20); // false
+				  => false && (Not evaluated)
+
+===================================================================================	  
+8. Ternary operators:
+----------------------
+
+	<boolExpr> ? <expr1> : <expr2>
+  
+   int a=10, b= 34;
+   
+   int max;
+   
+   if(a > b)
+	{
+		max = a;
+	}
+   else
+	{
+		max = b;
+	}
+
+System.out.println(max);
+
+------------------------- OR ----------------
+   int a=10, b= 34;
+   
+   int max = a > b ? a : b;
+   System.out.println(max);
+
+=====================================================================
+
+

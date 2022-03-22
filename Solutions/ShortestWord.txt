@@ -1,0 +1,50 @@
+package com.jap.shortestword;
+
+import java.util.Scanner;
+
+/* "Write a Java program to get the strings as input from the user and push them to an array.
+ Find the shortest word in the list of Strings and output the same on screen.*/
+public class ShortestWord {
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter number of words");
+
+		// Input number of words in array using scanner
+		int numberOfWords = sc.nextInt();
+
+		// Input array of words to be compared using scanner
+		String[] words = new String[numberOfWords];
+
+		for (int i = 0; i < numberOfWords; i++) {
+			System.out.println("Enter a word");
+			words[i] = sc.next();
+		}
+
+		ShortestWord shortestWord = new ShortestWord();
+		// Call the method and display shortest word in array of words
+		System.out.println("Shortest word is " + shortestWord.findShortestWord(words));
+	}
+
+	// Function to find shortest word in array of words
+	public String findShortestWord(String[] words) {
+
+		if (words.length == 0) {
+			return "Cannot find shortest word as array is empty";
+		}
+
+		String shortestWord = words[0];
+
+		for (String word : words) {
+
+			if (word.length() < shortestWord.length()) {
+
+				shortestWord = word;
+			}
+
+		}
+
+		return shortestWord;
+	}
+}

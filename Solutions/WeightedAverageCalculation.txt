@@ -1,0 +1,56 @@
+package com.jap.weightedaveragecalculator;
+
+import java.util.Scanner;
+
+public class WeightedAverageCalculation {
+
+	// Function accepts academic scores as input parameters and outputs the overall
+	// weighted average percentage of an individual.
+	// Calculate the Overall Percentage
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter Assignment Score");
+		int assignmentScore = scanner.nextInt();
+
+		System.out.println("Enter project Score");
+		int projectScore = scanner.nextInt();
+
+		System.out.println("Enter quiz Score");
+		int quizScore = scanner.nextInt();
+
+		System.out.println("Enter midTerm Score");
+		int midTermScore = scanner.nextInt();
+
+		System.out.println("Enter finalExam Score");
+		int finalExamScore = scanner.nextInt();
+
+		WeightedAverageCalculation obj = new WeightedAverageCalculation();
+
+		float result = obj.averageCalculation(assignmentScore, projectScore, quizScore, midTermScore, finalExamScore);
+
+		System.out.println("Overall Percentage: " + result);
+
+	}
+
+	public float averageCalculation(int assignmentScore, int projectScore, int quizScore, int midTermScore,
+			int finalExamScore) {
+
+		float assignmentScoreWeight = (assignmentScore * 0.10F);
+
+		float projectScoreWeight = (projectScore * 0.35F);
+
+		float quizScoreWeight = (quizScore * 0.10F);
+
+		float midTermScoreWeight = (midTermScore * 0.15F);
+
+		float finalExamScoreWeight = (finalExamScore * 0.30F);
+
+		float x = (assignmentScoreWeight + projectScoreWeight + quizScoreWeight + midTermScoreWeight
+				+ finalExamScoreWeight);
+
+		return x;
+	}
+
+}

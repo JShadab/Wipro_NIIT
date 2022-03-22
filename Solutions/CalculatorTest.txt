@@ -1,0 +1,73 @@
+package demo1;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class CalculatorTest {
+
+	private static Calculator calculator;
+
+	@BeforeAll
+	static void setupCalculator() {
+
+		calculator = new Calculator();
+
+		System.out.println("Before All Calculator is prepared");
+	}
+
+	@BeforeEach
+	void setup() {
+
+		// calculator = new Calculator();
+
+		System.out.println("Before Each Test Case");
+	}
+
+	@AfterEach
+	void byeBye() {
+
+		System.out.println("After Each Test Case");
+		System.out.println("----------------------------------------");
+	}
+
+	@Test
+	public void testSumOfPositiveValues() {
+
+		System.out.println("Inside testSumOfPositiveValues()");
+
+		int expected = 15;
+
+		int actual = calculator.sum(5, 10);
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSumOfNegativeValues() {
+
+		System.out.println("Inside testSumOfNegativeValues()");
+
+		int expected = -15;
+
+		int actual = calculator.sum(-5, -10);
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testSumOfMixedValues() {
+
+		System.out.println("Inside testSumOfMixedValues()");
+
+		int expected = 5;
+
+		int actual = calculator.sum(-5, 10);
+
+		assertEquals(expected, actual);
+	}
+
+}
