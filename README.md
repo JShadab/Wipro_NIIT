@@ -729,3 +729,129 @@ Object oriented programming:
 5. encapsulation
 6. abstraction
 
+---------------------------- INHERITANCE -------------
+Inheritance is a way of code reusability.
+
+In Java, we have relationships between the classes.
+	1. IS-A relationship (inheritance)
+	2. HAS-A relationship (composition / aggregation)
+	
+*) Car HAS-A Engine and Car IS-A Vehicle.
+
+class Vehicle 
+	{
+		//body
+	}
+--------------------------
+class Engine 
+	{
+		//body
+	}
+--------------------------
+class Car extends Vehicle
+	{   
+		-------
+		------
+		Engine e1;
+		-----		
+	}
+-------------------------------------------------------------
+-> In java, classes support single inheritance.
+-> Every class must have a parent class. If a class doesnot use extends keyword then it will inherits 
+	java.lang.Object class(Root class).
+-> java.lang.Object is the only class which dont have parent.
+
+-> A class can use 'extends' keyword to specify its parent class.
+
+
+
+public class Person
+	{
+		private String name;
+		
+		void sleep(){}
+		
+		void eat(){}
+	}
+-------------------------------------
+public class Employee extends Person
+	{
+		private int empId;
+		
+		void doWork(){}	
+
+        void sleep(){}		
+		
+	}
+---------------------------------------
+
+ Employee e1 = new Employee();
+		
+		e1.doWork(); //OK of Employee class
+		e1.eat(); // OK of Person class
+		e1.sleep(); // OK of Employee class
+		
+-------------------------------------------------------------------
+Method Overriding:
+---------------------
+-> Between the two classes having IS-A relationship. If both classes have same methods then it is called method overriding
+-> When a child class re-define the same method as of its parent class then it is called method overriding.
+
+Rules:
+----------
+	1. methods name and parameters must be same
+	2. In case of Return type:
+		a) if primitive, we cannot do any . must be same
+		b) if reference, use same or any sub type.
+		
+	3. Accessibilty/Visibilty it can be widen (private -> default -> protected -> public)
+	
+	4. In case of throws, narrowing ..?????
+	
+*) private , static, final methods are not take participation method overriding.
+
+public class Parent {
+
+	public float foo() {
+
+		System.out.println("Parent#foo");
+		return 0;
+	}
+
+	protected Animal shad() {
+
+		System.out.println("Parent#shad");
+		return null;
+	}
+
+	final void hello() {
+
+		System.out.println("Parent#hello");
+
+	}
+
+}
+
+----------------------------------------------------
+public class Child extends Parent {
+
+	@Override
+	public float foo() {
+		System.out.println("Child#foo");
+		return 0;
+	}
+
+	@Override
+	protected Cow shad() {
+		System.out.println("Child#shad");
+		return null;
+	}
+	
+	@Override
+	final void hello() {
+
+		System.out.println("Parent#hello");
+
+	}
+	
+}
