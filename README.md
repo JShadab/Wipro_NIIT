@@ -855,3 +855,48 @@ public class Child extends Parent {
 	}
 	
 }
+
+-----------------------------------------------------------------------------
+Abstract Keyord:
+------------------
+abstract class:
+-----------------
+-> Abstract class restrict its intanciation means we cannot create objects for abstract class, it can be inherited only.
+
+abstract method:
+-----------------
+-> A method without body is  called abstract method. And body will be provided by sub classes.
+
+Example:
+--------------
+
+abstract public class A
+{
+	void method1(){---}  
+	void method2(){---}
+}
+========================================
+abstract public class B
+{
+	void method3(){---}
+    abstract void method4();  //withoutbody
+}
+
+--------------------------------------------------------------------------
+Final Keyword:
+------------------
+-> We can use final with class, method, variable (member and local both)
+-> Final class cannot be inherited.
+-> Final method cannot be overridden.
+-> Final variable cannot be re-assigned
+
+-====================================================
+abstract class says, u can inherit but cannot create objects.
+final class says, u cannot inherit but can create objects.
+-----------------------------------------------------------------------
+
+
+
+
+
+
