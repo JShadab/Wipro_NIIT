@@ -1,0 +1,89 @@
+package com.niit.courier;
+
+public class Address {
+	// Declare the attributes that correspond to Address
+
+	private String name;
+	private int houseNo;
+	private String street;
+	private String city;
+	private String phoneNo;
+
+	// Parameterized constructor
+	public Address(String name, int houseNo, String street, String city, String phoneNo) {
+		// Initialize values here
+		this.name = name;
+		this.houseNo = houseNo;
+		this.street = street;
+		this.city = city;
+		this.phoneNo = phoneNo;
+	}
+
+	// Setter and getter methods
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getHouseNo() {
+		return houseNo;
+	}
+
+	public void setHouseNo(int houseNo) {
+		this.houseNo = houseNo;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	// This methods takes a phone no as a string and validates the phone number
+	// The phone no must be in the format below
+	// +<area code><10 digit numbers> - +919776855678
+	// or a 10 digit number - 9776855678
+
+	public int isPhoneNoValid(String phone) {
+	
+		if (phone.startsWith("+")) {
+			phone = phone.substring(1);
+		}
+
+		String regrex = "(91)?[0-9]{10}";
+		boolean isMatched = phone.matches(regrex);
+
+		return isMatched ? 1 : -1;
+	}
+
+	// The method must return the address in the below format
+	// Address [city=xxx,houseNo=xxx,name=xxx,phoneNo=xxx,street=xxx]
+	@Override
+	public String toString() {
+		return "Address [name=" + name + ", houseNo=" + houseNo + ", street=" + street + ", city=" + city + ", phoneNo="
+				+ phoneNo + "]";
+	}
+
+}
