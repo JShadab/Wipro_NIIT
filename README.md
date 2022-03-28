@@ -894,9 +894,156 @@ Final Keyword:
 abstract class says, u can inherit but cannot create objects.
 final class says, u cannot inherit but can create objects.
 -----------------------------------------------------------------------
+RUKE-1: Every Java class must have at least one constructor. 
+	    If we didnot create, Compiler will create a default constructor in the class while compilation.
+
+RUKE-2: Every constructor, must have either super() or this() as first statement.
+	    If we didnot create, Compiler will insert super() by default.
+
+super() -> is used to call immediate parent class constructor.
+this() -> is used to call another constructor of the same class.
+-------------------------------------------------------------------------------
+public class SuperDemo {
+	public static void main(String[] args) {
+
+		C v1 = new C();
+
+	}
+
+}
+
+class A {
+	A() {
+		super(); // It will call its Parent class constructor.
+		System.out.println("Class A Constructor");
+	}
+
+}
+
+class B extends A {
+	B() {
+		super(); // It will call its Parent class constructor.
+		System.out.println("Class B Constructor");
+	}
+
+	int x;
+
+}
+
+class C extends B {
+	C() {
+		super(); // It will call its Parent class constructor.
+		System.out.println("Class C Constructor");
+	}
+
+}
+
+===============================================
+
+public class ThisDemo {
+	public static void main(String[] args) {
+
+	//	Animal a1 = new Animal();
+		 Animal a2 = new Animal(5);
+		// Animal a3 = new Animal(5, 10);
+
+	}
+
+}
+
+class Animal {
+
+	Animal() {
+		this(9);
+		System.out.println("Default Constructor");
+	}
+
+	Animal(int x) {
+		this(x, 88);
+		System.out.println("1 parameter Constructor");
+	}
+
+	Animal(int x, int y) {
+		System.out.println("2 parameter Constructor");
+	}
+
+}
+
+--------------------------------------- INTERFACE -------------------------------------------
+class A
+{}
+
+class B
+{}
 
 
+class C exends A, B   // C.E.
+{}
 
+-> In Java we have both Single and multiple inheritance.
+-> Classes support only single inheritance.
+-> Interface provides multiple inheritance.
 
+=======================================================================
+Like a class, Interface is an user defined data type.
 
+Syntax:(Till Java 7)
+----------------------
+	<modifier> interface <name> <extends> 
+			{
+				// body -> members 
+						1. variable(in reality CONSTANT) -> public static final
+						2. method -> public abstract						
+						
+			}
+Syntax:(From Java8)
+------------------------
+	<modifier> interface <name> <extends> 
+			{
+				// body -> members 
+						1. variable(in reality CONSTANT) -> public static final
+						2. method -> public abstract
+						3. default method
+						4. static method
+						
+			}
+			
+-> Like abstract class, we cannot create objects for interfaces.
 
+-> Class -------extends---------> Class
+   Interface -----extends-------> Interface
+   
+   Class -----implements-------> Interface
+   Interface ------Error------> Class
+   
+-> If a class inherits one or more interaces, then class must have to implements methods of 
+			those interfaces otherwise it will become abstract
+
+Example:
+---------
+	interface A {
+
+	int i = 10;
+	public static final int j = 15;
+
+	void m1();
+
+	public abstract void m2();
+	
+	// From Java8
+
+	default void m3() {
+	}
+
+	default void m4() {
+	}
+
+	static void m5() {
+	}
+
+	static void m6() {
+	}
+
+}
+
+-----------------------------------------------------
