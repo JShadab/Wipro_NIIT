@@ -1047,3 +1047,115 @@ Example:
 }
 
 -----------------------------------------------------
+Class -> user define data type which supports single inheritance.
+Interface -> user define data type which supports multile inheritance.
+
+public class Programming
+{
+}
+
+Programming c = new  Programming();
+Programming cpp = new Programming();
+Programming java = new Programming();
+Programming python = new Programming();
+Programming go = new Programming();
+Programming javaScript = new Programming();
+Programming x = new Programming();
+Programming y = new Programming();
+Programming z = new Programming();
+
+
+---------------------------------------------
+Enum ->
+
+public enum Programming
+{
+
+    C, CPP, JAVA, PYTHON, GO, JAVA_SCRIPT ;
+
+}
+------------------------------------------------
+public enum WeekDays
+{
+
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY ;
+
+}
+
+----------------------------------- Wrapper Classes--------------------------------
+Java is not a 100% OOP language, due to pimitive type
+
+byte -> Byte
+short -> Short
+int -> Integer
+long -> Long
+
+float -> Float
+double -> Double
+
+char -> Character
+boolean -> Boolean
+void -> Void
+
+1. Usecase #1 :
+-------------------
+For numeric wapper classes we have MIN_VALUE and MAX_VALUE
+
+minimum value for int data type is : Integer.MIN_VALUE
+
+2. Usecase #2 :
+-------------------
+To convert String into a number.
+
+use parseXXX(String) 
+
+3. Usecase #3 :
+-------------------
+Heavly used in Collection and Generics
+
+----------------------------------- Inner classes------------------
+
+
+class Outer
+{
+
+// Variables
+       int a;
+static int b;
+
+
+// methods
+       void foo(){------}
+static void blah(){------}
+
+// constructors
+       Outer(){------}
+       Outer(String x){------}
+
+// inner classes
+
+	class Inner{
+	
+	}
+	
+static class Nested{
+	
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
