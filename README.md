@@ -1145,6 +1145,84 @@ static class Nested{
 
 }
 
+---------------------------------------------------------------------------------------
+	int i = 10;
+	int j = 10;
+
+ boolean b1 = i == j; // true
+ 
+-----------------------------------------
+
+public class Customer {
+
+	private int customerId;
+	private String name;
+	private String email;
+	private Address address;
+
+	public Customer() {
+		// default Constructor
+
+	}
+
+	public Customer(int customerId, String name, String email, Address address) {
+		this.customerId = customerId;
+		this.name = name;
+		this.email = email;
+		this.address = address;
+
+	}
+
+	@Override
+	public boolean equals(Object other) {
+
+		return false;
+	}
+
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+}
+
+
+Customer c1 = new Customer();
+Customer c2 = new Customer();
+
+ boolean b2 = c1 == c2; // ???
+ 
+----------------------------------------
+1. For primitive values use "=="
+2. For reference type values always use "equals(---)".
+		*) For your custom classes, nust override equals(---) with proper logic.
 
 
 
